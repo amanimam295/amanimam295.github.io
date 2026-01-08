@@ -26,41 +26,90 @@
       overflow-x: hidden;
     }
 
+    /* ================= NAVBAR (FROM ABOUT.HTML) ================= */
     .navbar {
-      background: rgba(0, 0, 0, 0.8);
+      width: 100%;
       display: flex;
-      justify-content: center;
-      padding: 15px 0;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 12px 20px;
       box-shadow: 0 2px 10px #00cfff;
       position: sticky;
       top: 0;
       z-index: 999;
     }
 
-    .navbar a {
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
       color: #00f7ff;
       text-decoration: none;
-      margin: 0 20px;
       font-size: 20px;
       transition: 0.3s;
-      position: relative;
     }
 
-    .navbar a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: #00cfff;
-      left: 0;
-      bottom: -5px;
-      transition: 0.4s;
+    .nav-links a:hover {
+      color: #00cfff;
+      text-shadow: 0 0 10px #00f7ff;
     }
 
-    .navbar a:hover::after {
-      width: 100%;
+    .hamburger {
+      font-size: 28px;
+      color: #00f7ff;
+      cursor: pointer;
+      display: none;
+      transition: transform 0.4s ease;
     }
 
+    .hamburger.rotate {
+      transform: rotate(90deg);
+    }
+
+    @media screen and (max-width: 768px) {
+      .hamburger { display: block; }
+
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px 0;
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+
+      .nav-links.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      .nav-links a {
+        text-align: center;
+        font-size: 18px;
+        margin: 12px 0;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      .navbar { justify-content: center; }
+
+      .nav-links {
+        padding: 8px 30px;
+        border-radius: 40px;
+        box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
+      }
+    }
+
+    /* ================= CV CONTENT ================= */
     .cv-section {
       padding: 60px 20px;
       text-align: center;
@@ -160,17 +209,20 @@
 
   <!-- NAVBAR -->
   <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="projects.html">Projects</a>
-    <a href="cv.html">CV</a>
-    <a href="contact.html">Contact</a>
+    <div class="hamburger" onclick="toggleNavbar()">☰</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 
+  <!-- CV CONTENT -->
   <div class="cv-section">
     <h1>Curriculum Vitae</h1>
 
-    <!-- Professional Summary -->
     <div class="cv-card">
       <h2>Professional Summary</h2>
       <p>
@@ -179,7 +231,6 @@
       </p>
     </div>
 
-    <!-- GOOGLE STUDENT AMBASSADOR -->
     <div class="cv-card">
       <h2>Leadership & Achievements</h2>
       <div class="experience-item">
@@ -196,12 +247,33 @@
       </div>
     </div>
 
-    <!-- DOWNLOAD PDF -->
-    <a href="Aman_Imam_CV.pdf" class="download-btn" download>
+    <!-- DOWNLOAD CV (TRACKED) -->
+    <a
+      href="Aman_Imam_CV.pdf"
+      class="download-btn"
+      download
+      onclick="trackCVDownload()"
+    >
       📄 Download CV
     </a>
-
   </div>
+
+  <!-- JS -->
+  <script>
+    function toggleNavbar() {
+      document.querySelector('.nav-links').classList.toggle('show');
+      document.querySelector('.hamburger').classList.toggle('rotate');
+    }
+
+    function trackCVDownload() {
+      if (typeof gtag === "function") {
+        gtag('event', 'cv_download', {
+          event_category: 'engagement',
+          event_label: 'Aman_Imam_CV.pdf'
+        });
+      }
+    }
+  </script>
 
 </body>
 </html>
