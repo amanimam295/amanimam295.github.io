@@ -11,82 +11,143 @@
   </script>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aman Imam's CV - Web Developer and Game Development enthusiast with experience in HTML, CSS, JavaScript, and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aman Imam's CV - Web Developer and Game Development enthusiast.">
   <title>CV - Aman</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
     body {
       background: linear-gradient(to right, black, #00cfff);
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
       color: white;
       overflow-x: hidden;
     }
+
+    /* ================= NAVBAR (FROM ABOUT.HTML) ================= */
     .navbar {
-      background: rgba(0, 0, 0, 0.8);
+      width: 100%;
       display: flex;
-      justify-content: center;
-      padding: 15px 0;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 12px 20px;
       box-shadow: 0 2px 10px #00cfff;
       position: sticky;
       top: 0;
       z-index: 999;
-      animation: slideDown 1s ease-out;
     }
-    .navbar a {
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
       color: #00f7ff;
       text-decoration: none;
-      margin: 0 20px;
       font-size: 20px;
       transition: 0.3s;
-      position: relative;
     }
-    .navbar a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: #00cfff;
-      left: 0;
-      bottom: -5px;
-      transition: 0.4s;
+
+    .nav-links a:hover {
+      color: #00cfff;
+      text-shadow: 0 0 10px #00f7ff;
     }
-    .navbar a:hover::after {
-      width: 100%;
+
+    .hamburger {
+      font-size: 28px;
+      color: #00f7ff;
+      cursor: pointer;
+      display: none;
+      transition: transform 0.4s ease;
     }
-    @keyframes slideDown {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(0); }
+
+    .hamburger.rotate {
+      transform: rotate(90deg);
     }
+
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px 0;
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+
+      .nav-links.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      .nav-links a {
+        text-align: center;
+        font-size: 18px;
+        margin: 12px 0;
+        animation: linkFade 0.4s ease forwards;
+      }
+    }
+
+    @keyframes linkFade {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (min-width: 769px) {
+      .navbar {
+        justify-content: center;
+      }
+
+      .nav-links {
+        padding: 8px 30px;
+        border-radius: 40px;
+        box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
+      }
+
+      .hamburger {
+        display: none;
+      }
+    }
+
+    /* ================= CV SECTION ================= */
     .cv-section {
       padding: 60px 20px;
       text-align: center;
       animation: fadeIn 2s ease-in;
     }
+
     @keyframes fadeIn {
       0% { opacity: 0; transform: scale(0.8); }
       100% { opacity: 1; transform: scale(1); }
     }
+
     h1 {
       font-size: 48px;
       color: #00cfff;
       text-shadow: 0 0 15px #00f7ff;
+    }
+
+    h2 {
+      color: #00cfff;
       margin-bottom: 20px;
     }
-    h2 {
-      font-size: 32px;
-      color: #00cfff;
-      text-shadow: 0 0 10px #00f7ff;
-      margin: 30px 0 20px 0;
-    }
+
     h3 {
-      font-size: 24px;
       color: #00ffea;
-      margin: 15px 0 10px 0;
     }
+
     .cv-card {
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 12px;
@@ -94,76 +155,39 @@
       margin: 30px auto;
       max-width: 800px;
       box-shadow: 0 0 15px #00f7ff;
-      animation: pulse 2s infinite;
       text-align: left;
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px #00cfff; }
-      50% { box-shadow: 0 0 25px #00f7ff; }
-      100% { box-shadow: 0 0 10px #00cfff; }
-    }
-    .personal-info {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .personal-info p {
-      font-size: 18px;
-      color: #b0e0ff;
-      margin: 5px 0;
-    }
+
     p {
       font-size: 18px;
       color: #b0e0ff;
       line-height: 1.6;
-      margin: 10px 0;
     }
+
     .highlight {
       color: #00ffea;
       font-weight: bold;
     }
-    .experience-item, .education-item {
-      margin: 20px 0;
+
+    .experience-item {
+      margin-top: 20px;
       padding: 15px;
       border-left: 3px solid #00cfff;
       background: rgba(0, 207, 255, 0.1);
       border-radius: 0 8px 8px 0;
     }
+
     .date {
       color: #00cfff;
       font-weight: bold;
       font-size: 16px;
     }
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 20px 0;
-    }
-    .skill-category {
-      background: rgba(0, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #00cfff;
-    }
-    .skill-category h4 {
-      color: #00cfff;
-      margin: 0 0 15px 0;
-      font-size: 20px;
-    }
-    .skill-item {
-      display: inline-block;
-      background: rgba(0, 207, 255, 0.2);
-      color: #00ffea;
-      padding: 5px 12px;
-      margin: 5px;
-      border-radius: 20px;
-      font-size: 14px;
-      border: 1px solid #00cfff;
-    }
+
     ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
     }
+
     ul li {
       font-size: 16px;
       margin: 8px 0;
@@ -171,180 +195,75 @@
       position: relative;
       padding-left: 20px;
     }
+
     ul li::before {
       content: "▶";
       color: #00cfff;
       position: absolute;
       left: 0;
     }
-    .download-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #00cfff, #00ffea);
-      color: black;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 18px;
-      margin: 20px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px #00cfff;
-    }
-    .download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #00f7ff;
-    }
   </style>
 </head>
 
 <body>
+
+  <!-- NAVBAR -->
   <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="projects.html">Projects</a>
-    <a href="cv.html">CV</a>
-    <a href="contact.html">Contact</a>
+    <div class="hamburger" onclick="toggleNavbar()">☰</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 
+  <!-- CV CONTENT -->
   <div class="cv-section">
     <h1>Curriculum Vitae</h1>
-
-    <!-- Personal Information -->
-    <div class="cv-card">
-      <div class="personal-info">
-        <h2>Aman Imam</h2>
-        <p><span class="highlight">Web Developer</span> & <span class="highlight">Game Development Enthusiast</span></p>
-        <p>📧 aman12142724011@bitcollege.in | 📱 +91 81002 64741</p>
-        <p>🌐 <a href="https://www.linkedin.com/in/amanimam/" target="_blank" style="color: #00f7ff;">LinkedIn Profile</a></p>
-        <p>📍 India</p>
-      </div>
-    </div>
 
     <!-- Professional Summary -->
     <div class="cv-card">
       <h2>Professional Summary</h2>
-      <p>Passionate and dedicated <span class="highlight">Web Developer</span> with a strong foundation in front-end technologies and a keen interest in <span class="highlight">Game Development</span>. I specialize in creating engaging digital experiences using modern web technologies and have a proven track record of building responsive, user-friendly applications.</p>
+      <p>
+        Passionate and dedicated <span class="highlight">Web Developer</span> with a strong foundation in front-end technologies
+        and a keen interest in <span class="highlight">Game Development</span>. I specialize in creating engaging, responsive,
+        and user-friendly digital experiences.
+      </p>
     </div>
 
-    <!-- Skills -->
+    <!-- Google Student Ambassador -->
     <div class="cv-card">
-      <h2>Technical Skills</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h4>Frontend Development</h4>
-          <div class="skill-item">HTML5</div>
-          <div class="skill-item">CSS3</div>
-          <div class="skill-item">JavaScript</div>
-          <div class="skill-item">Responsive Design</div>
-          <div class="skill-item">UI/UX Design</div>
-        </div>
-        <div class="skill-category">
-          <h4>Tools & Technologies</h4>
-          <div class="skill-item">Git</div>
-          <div class="skill-item">GitHub</div>
-          <div class="skill-item">VS Code</div>
-          <div class="skill-item">Web APIs</div>
-          <div class="skill-item">Form Handling</div>
-        </div>
-        <div class="skill-category">
-          <h4>Core Competencies</h4>
-          <div class="skill-item">Problem Solving</div>
-          <div class="skill-item">Website Optimization</div>
-          <div class="skill-item">Cross-browser Compatibility</div>
-          <div class="skill-item">Performance Optimization</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects & Experience -->
-    <div class="cv-card">
-      <h2>Notable Projects</h2>
-      
-      <div class="experience-item">
-        <h3>Basic Calculator Application</h3>
-        <p class="date">2024</p>
-        <p>Developed a fully functional calculator web application with a clean, intuitive interface.</p>
-        <ul>
-          <li>Implemented core arithmetic operations using JavaScript</li>
-          <li>Designed responsive UI with CSS animations and hover effects</li>
-          <li>Added clear/reset functionality for enhanced user experience</li>
-          <li>Technologies: <span class="highlight">HTML, CSS, JavaScript</span></li>
-        </ul>
-      </div>
+      <h2>Leadership & Achievements</h2>
 
       <div class="experience-item">
-        <h3>Temperature Converter Tool</h3>
-        <p class="date">2024</p>
-        <p>Created an interactive temperature conversion tool for Celsius to Fahrenheit conversions.</p>
+        <h3>Google Student Ambassador</h3>
+        <p class="date">August 2025 – Present</p>
+        <p>
+          Selected as a <span class="highlight">Google Student Ambassador</span>, representing Google on campus and actively
+          promoting Google technologies, developer programs, and learning initiatives among students.
+        </p>
         <ul>
-          <li>Implemented real-time conversion functionality</li>
-          <li>Added input validation and error handling</li>
-          <li>Designed user-friendly interface with clear visual feedback</li>
-          <li>Technologies: <span class="highlight">HTML, JavaScript</span></li>
+          <li>Promoting awareness of Google tools, platforms, and student programs</li>
+          <li>Participating in tech events, workshops, and community initiatives</li>
+          <li>Encouraging students to explore Cloud, AI, and Web technologies</li>
+          <li>Developing leadership, communication, and community management skills</li>
         </ul>
       </div>
-
-      <div class="experience-item">
-        <h3>E-Commerce Website Mockup</h3>
-        <p class="date">2024</p>
-        <p>Developed a comprehensive e-commerce website prototype showcasing modern web development practices.</p>
-        <ul>
-          <li>Built product listing pages with dynamic content</li>
-          <li>Implemented shopping cart functionality</li>
-          <li>Created responsive design for multiple device types</li>
-          <li>Technologies: <span class="highlight">HTML, CSS, JavaScript</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Education -->
-    <div class="cv-card">
-      <h2>Education</h2>
-      
-      <div class="education-item">
-        <h3>Currently Pursuing Studies</h3>
-        <p class="date">Present</p>
-        <p>Actively learning and developing skills in <span class="highlight">Web Development</span> and <span class="highlight">Game Development</span> through hands-on projects and self-directed learning.</p>
-        <ul>
-          <li>Frontend web development with modern technologies</li>
-          <li>JavaScript programming and DOM manipulation</li>
-          <li>Responsive web design principles</li>
-          <li>User experience and interface design</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Interests & Hobbies -->
-    <div class="cv-card">
-      <h2>Interests & Hobbies</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h4>Technology</h4>
-          <p>Passionate about staying updated with the latest web development trends, exploring new programming languages, and experimenting with emerging technologies.</p>
-        </div>
-        <div class="skill-category">
-          <h4>Gaming</h4>
-          <p>Avid gamer with interests in game development, game design principles, and understanding user engagement in interactive experiences.</p>
-        </div>
-        <div class="skill-category">
-          <h4>Learning</h4>
-          <p>Continuously expanding knowledge through online courses, coding challenges, and building personal projects to enhance technical skills.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Goals & Aspirations -->
-    <div class="cv-card">
-      <h2>Professional Goals</h2>
-      <p>My goal is to continue growing as a developer, creating innovative web solutions that combine <span class="highlight">functionality with beautiful design</span>. I aim to contribute to meaningful projects that make technology accessible and enjoyable for users worldwide.</p>
-      <p>I'm particularly interested in opportunities that allow me to work on <span class="highlight">interactive web applications</span>, <span class="highlight">game development projects</span>, and cutting-edge web technologies.</p>
-    </div>
-
-    <!-- Download CV Button -->
-    <div style="text-align: center; margin: 30px 0;">
-      <a href="#" class="download-btn" onclick="window.print(); return false;">📄 Print/Download CV</a>
     </div>
   </div>
+
+  <!-- JS -->
+  <script>
+    function toggleNavbar() {
+      const nav = document.querySelector('.nav-links');
+      const burger = document.querySelector('.hamburger');
+
+      nav.classList.toggle('show');
+      burger.classList.toggle('rotate');
+    }
+  </script>
 
 </body>
 </html>
