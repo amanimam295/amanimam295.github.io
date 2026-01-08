@@ -24,7 +24,7 @@
       overflow-x: hidden;
     }
 
-    /* ================= NAVBAR (FROM ABOUT.HTML) ================= */
+    /* ================= NAVBAR ================= */
     .navbar {
       width: 100%;
       display: flex;
@@ -96,13 +96,7 @@
         text-align: center;
         font-size: 18px;
         margin: 12px 0;
-        animation: linkFade 0.4s ease forwards;
       }
-    }
-
-    @keyframes linkFade {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     @media screen and (min-width: 769px) {
@@ -115,13 +109,9 @@
         border-radius: 40px;
         box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
       }
-
-      .hamburger {
-        display: none;
-      }
     }
 
-    /* ================= CV SECTION ================= */
+    /* ================= CV CONTENT ================= */
     .cv-section {
       padding: 60px 20px;
       text-align: center;
@@ -139,15 +129,6 @@
       text-shadow: 0 0 15px #00f7ff;
     }
 
-    h2 {
-      color: #00cfff;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      color: #00ffea;
-    }
-
     .cv-card {
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 12px;
@@ -159,8 +140,8 @@
     }
 
     p {
-      font-size: 18px;
       color: #b0e0ff;
+      font-size: 18px;
       line-height: 1.6;
     }
 
@@ -169,38 +150,23 @@
       font-weight: bold;
     }
 
-    .experience-item {
-      margin-top: 20px;
-      padding: 15px;
-      border-left: 3px solid #00cfff;
-      background: rgba(0, 207, 255, 0.1);
-      border-radius: 0 8px 8px 0;
-    }
-
-    .date {
-      color: #00cfff;
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #00cfff, #00ffea);
+      color: black;
+      padding: 15px 30px;
+      border-radius: 25px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
+      margin: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00cfff;
+      transition: 0.3s;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      font-size: 16px;
-      margin: 8px 0;
-      color: #b0e0ff;
-      position: relative;
-      padding-left: 20px;
-    }
-
-    ul li::before {
-      content: "▶";
-      color: #00cfff;
-      position: absolute;
-      left: 0;
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00f7ff;
     }
   </style>
 </head>
@@ -223,45 +189,46 @@
   <div class="cv-section">
     <h1>Curriculum Vitae</h1>
 
-    <!-- Professional Summary -->
     <div class="cv-card">
-      <h2>Professional Summary</h2>
       <p>
-        Passionate and dedicated <span class="highlight">Web Developer</span> with a strong foundation in front-end technologies
-        and a keen interest in <span class="highlight">Game Development</span>. I specialize in creating engaging, responsive,
-        and user-friendly digital experiences.
+        Hello, I'm <span class="highlight">Aman Imam</span>, a passionate
+        <span class="highlight">Web Developer</span> and
+        <span class="highlight">Game Development Enthusiast</span>.
       </p>
     </div>
 
-    <!-- Google Student Ambassador -->
+    <!-- GOOGLE STUDENT AMBASSADOR SECTION -->
     <div class="cv-card">
-      <h2>Leadership & Achievements</h2>
-
-      <div class="experience-item">
-        <h3>Google Student Ambassador</h3>
-        <p class="date">August 2025 – Present</p>
-        <p>
-          Selected as a <span class="highlight">Google Student Ambassador</span>, representing Google on campus and actively
-          promoting Google technologies, developer programs, and learning initiatives among students.
-        </p>
-        <ul>
-          <li>Promoting awareness of Google tools, platforms, and student programs</li>
-          <li>Participating in tech events, workshops, and community initiatives</li>
-          <li>Encouraging students to explore Cloud, AI, and Web technologies</li>
-          <li>Developing leadership, communication, and community management skills</li>
-        </ul>
-      </div>
+      <h2 class="highlight">Leadership & Achievements</h2>
+      <p>
+        <strong>Google Student Ambassador</strong><br>
+        <span class="highlight">August 2025 – Present</span>
+      </p>
+      <p>
+        Selected as a <span class="highlight">Google Student Ambassador</span>, representing Google on campus and actively
+        promoting Google technologies, developer programs, and learning initiatives among students.
+      </p>
+      <p>
+        This role has strengthened my leadership, communication, and community-building skills while encouraging
+        students to explore modern web technologies, cloud computing, and AI.
+      </p>
     </div>
+
+    <!-- DOWNLOAD PDF CV -->
+    <a
+      href="Aman_Imam_CV.pdf"
+      class="download-btn"
+      download
+    >
+      📄 Download CV
+    </a>
   </div>
 
   <!-- JS -->
   <script>
     function toggleNavbar() {
-      const nav = document.querySelector('.nav-links');
-      const burger = document.querySelector('.hamburger');
-
-      nav.classList.toggle('show');
-      burger.classList.toggle('rotate');
+      document.querySelector('.nav-links').classList.toggle('show');
+      document.querySelector('.hamburger').classList.toggle('rotate');
     }
   </script>
 
