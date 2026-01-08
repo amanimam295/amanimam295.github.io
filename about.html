@@ -23,11 +23,11 @@
       overflow-x: hidden;
     }
 
-    /* ================= NAVBAR ================= */
+    /* ================= NAVBAR (BASE / MOBILE) ================= */
     .navbar {
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between; /* mobile layout */
       align-items: center;
       background: rgba(0, 0, 0, 0.8);
       padding: 12px 20px;
@@ -39,10 +39,7 @@
 
     .nav-links {
       display: flex;
-      gap: 25px;
-      padding: 8px 25px;
-      border-radius: 40px;
-      box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
+      gap: 20px;
     }
 
     .nav-links a {
@@ -50,7 +47,6 @@
       text-decoration: none;
       font-size: 20px;
       transition: 0.3s;
-      padding: 5px 8px;
     }
 
     .nav-links a:hover {
@@ -63,11 +59,9 @@
       color: #00f7ff;
       cursor: pointer;
       display: none;
-      position: absolute;
-      right: 20px;
     }
 
-    /* ================= MOBILE NAVBAR ================= */
+    /* ================= MOBILE NAV ================= */
     @media screen and (max-width: 768px) {
       .hamburger {
         display: block;
@@ -76,14 +70,12 @@
       .nav-links {
         display: none;
         flex-direction: column;
-        width: 100%;
         position: absolute;
         top: 60px;
         left: 0;
+        width: 100%;
         background: rgba(0, 0, 0, 0.95);
         padding: 20px 0;
-        box-shadow: none;
-        border-radius: 0;
       }
 
       .nav-links.show {
@@ -94,6 +86,23 @@
         text-align: center;
         font-size: 18px;
         margin: 10px 0;
+      }
+    }
+
+    /* ================= DESKTOP NAV (CENTERED) ================= */
+    @media screen and (min-width: 769px) {
+      .navbar {
+        justify-content: center; /* CENTER ONLY ON DESKTOP */
+      }
+
+      .nav-links {
+        padding: 8px 30px;
+        border-radius: 40px;
+        box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
+      }
+
+      .hamburger {
+        display: none;
       }
     }
 
@@ -148,26 +157,14 @@
 
     /* ================= RESPONSIVE TEXT ================= */
     @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 36px;
-      }
-      p {
-        font-size: 16px;
-        line-height: 1.6;
-      }
-      .card {
-        padding: 20px;
-        margin-top: 30px;
-      }
+      h1 { font-size: 36px; }
+      p { font-size: 16px; }
+      .card { padding: 20px; }
     }
 
     @media screen and (max-width: 480px) {
-      h1 {
-        font-size: 28px;
-      }
-      p {
-        font-size: 14px;
-      }
+      h1 { font-size: 28px; }
+      p { font-size: 14px; }
     }
   </style>
 </head>
@@ -187,7 +184,7 @@
     </div>
   </div>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <div class="about-section">
     <h1>About Me</h1>
 
@@ -196,27 +193,20 @@
         Hello! I'm <span class="highlight">Aman</span>, a passionate
         <span class="highlight">Web Developer</span> and
         <span class="highlight">Gamer</span> based in India.
+      </p>
+      <br>
+      <p>
         I specialize in <span class="highlight">Website Designing</span>,
-        <span class="highlight">Coding</span>, and love creating amazing digital experiences.
+        <span class="highlight">Coding</span> and love creating digital experiences.
       </p>
-
       <br>
-
       <p>
-        When I'm not coding, you'll find me playing games, learning new tech skills,
-        or brainstorming cool project ideas!
-      </p>
-
-      <br>
-
-      <p>
-        My goal is to keep growing, innovating, and making technology beautiful and
-        accessible for everyone.
+        My goal is to keep growing, innovating, and making technology beautiful for everyone.
       </p>
     </div>
   </div>
 
-  <!-- JAVASCRIPT -->
+  <!-- JS -->
   <script>
     function toggleNavbar() {
       document.querySelector('.nav-links').classList.toggle('show');
