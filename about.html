@@ -27,7 +27,7 @@
     .navbar {
       width: 100%;
       display: flex;
-      justify-content: space-between; /* mobile layout */
+      justify-content: space-between;
       align-items: center;
       background: rgba(0, 0, 0, 0.8);
       padding: 12px 20px;
@@ -59,40 +59,64 @@
       color: #00f7ff;
       cursor: pointer;
       display: none;
+      transition: transform 0.4s ease;
     }
 
-    /* ================= MOBILE NAV ================= */
+    .hamburger.rotate {
+      transform: rotate(90deg);
+    }
+
+    /* ================= MOBILE NAV WITH ANIMATION ================= */
     @media screen and (max-width: 768px) {
       .hamburger {
         display: block;
       }
 
       .nav-links {
-        display: none;
-        flex-direction: column;
         position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
+        flex-direction: column;
         background: rgba(0, 0, 0, 0.95);
         padding: 20px 0;
+
+        /* animation magic */
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+        pointer-events: none;
+        transition: all 0.4s ease;
       }
 
       .nav-links.show {
-        display: flex;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
       }
 
       .nav-links a {
         text-align: center;
         font-size: 18px;
-        margin: 10px 0;
+        margin: 12px 0;
+        animation: linkFade 0.4s ease forwards;
       }
     }
 
-    /* ================= DESKTOP NAV (CENTERED) ================= */
+    @keyframes linkFade {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ================= DESKTOP NAV ================= */
     @media screen and (min-width: 769px) {
       .navbar {
-        justify-content: center; /* CENTER ONLY ON DESKTOP */
+        justify-content: center;
       }
 
       .nav-links {
@@ -189,27 +213,24 @@
     <h1>About Me</h1>
 
     <div class="card">
-      <p>
-        Hello! I'm <span class="highlight">Aman</span>, a passionate
-        <span class="highlight">Web Developer</span> and
-        <span class="highlight">Gamer</span> based in India.
-      </p>
+      <p>Hello! I'm <span class="highlight">Aman</span>, a passionate
+      <span class="highlight">Web Developer</span> and
+      <span class="highlight">Gamer</span> based in India.</p>
       <br>
-      <p>
-        I specialize in <span class="highlight">Website Designing</span>,
-        <span class="highlight">Coding</span> and love creating digital experiences.
-      </p>
+      <p>I love creating amazing digital experiences and learning new technologies.</p>
       <br>
-      <p>
-        My goal is to keep growing, innovating, and making technology beautiful for everyone.
-      </p>
+      <p>My goal is to grow, innovate, and make tech beautiful for everyone.</p>
     </div>
   </div>
 
   <!-- JS -->
   <script>
     function toggleNavbar() {
-      document.querySelector('.nav-links').classList.toggle('show');
+      const nav = document.querySelector('.nav-links');
+      const burger = document.querySelector('.hamburger');
+
+      nav.classList.toggle('show');
+      burger.classList.toggle('rotate');
     }
   </script>
 
