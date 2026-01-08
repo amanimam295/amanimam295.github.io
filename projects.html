@@ -130,4 +130,117 @@
 
     @keyframes fadeIn {
       0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #00cfff;
+      text-shadow: 0 0 15px #00f7ff;
+      margin-bottom: 20px;
+    }
+
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 500px;
+      box-shadow: 0 0 15px #00f7ff;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #00cfff; }
+      50% { box-shadow: 0 0 25px #00f7ff; }
+      100% { box-shadow: 0 0 10px #00cfff; }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      font-size: 20px;
+      margin: 10px 0;
+      font-weight: bold;
+      color: #b0e0ff;
+      text-shadow: 0 0 10px #00f7ff;
+      transition: 0.3s;
+    }
+
+    ul li:hover {
+      color: #00ffea;
+      text-shadow: 0 0 15px #00cfff;
+    }
+
+    .highlight {
+      color: #00ffea;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="hamburger" onclick="toggleNavbar()">☰</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="project-section">
+    <h1>My Projects</h1>
+
+    <div class="project-card">
+      <h2 class="highlight">1. Basic Calculator</h2>
+      <p>A simple calculator for basic arithmetic operations.</p>
+      <ul>
+        <li>Technologies: <span class="highlight">HTML, CSS, JavaScript</span></li>
+        <li>Features: <span class="highlight">Math operations, reset</span></li>
+        <li>Link: <a href="calculator.html" class="highlight" target="_blank">View Project</a></li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2 class="highlight">2. Celsius to Fahrenheit Converter</h2>
+      <p>Temperature conversion tool using JavaScript.</p>
+      <ul>
+        <li>Technologies: <span class="highlight">HTML, JavaScript</span></li>
+        <li>Features: <span class="highlight">Conversion, reset</span></li>
+        <li>Link: <a href="temp-converter.html" class="highlight" target="_blank">View Project</a></li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2 class="highlight">3. E-Commerce Website</h2>
+      <p>Mock e-commerce website with cart functionality.</p>
+      <ul>
+        <li>Technologies: <span class="highlight">HTML, CSS, JavaScript</span></li>
+        <li>Features: <span class="highlight">Products, cart</span></li>
+        <li>Link: <a href="ecommerce.html" class="highlight" target="_blank">View Project</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function toggleNavbar() {
+      const nav = document.querySelector('.nav-links');
+      const burger = document.querySelector('.hamburger');
+
+      nav.classList.toggle('show');
+      burger.classList.toggle('rotate');
+    }
+  </script>
+
+</body>
+</html>
