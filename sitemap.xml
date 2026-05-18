@@ -9,42 +9,57 @@
 
 <url>
   <loc>https://amanimam.me/</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://amanimam.me/index.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://amanimam.me/about.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://amanimam.me/projects.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://amanimam.me/experience.html</loc>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://amanimam.me/cv.html</loc>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://amanimam.me/contact.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://amanimam.me/calculator.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://amanimam.me/temp-converter.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://amanimam.me/ecommerce.html</loc>
-  <lastmod>2025-05-26T12:32:08+00:00</lastmod>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://amanimam.me/Aman_Imam_CV.pdf</loc>
+  <lastmod>2026-05-18T00:35:30+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
