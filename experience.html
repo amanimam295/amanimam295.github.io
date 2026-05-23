@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVSSCKMSVR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -142,7 +142,7 @@ top:0;
 bottom:0;
 left:50%;
 margin-left:-2px;
-z-index:1; /* Added */
+z-index:1;
 }
 
 .card{
@@ -173,14 +173,34 @@ background:#00f7ff;
 border-radius:50%;
 top:30px;
 right:-10px;
-z-index:2; /* Added */
+z-index:2;
 }
 
 .right::after{
 left:-10px;
 }
 
-h2{color:#00f7ff;}
+h2{
+color:#00f7ff;
+display: flex;
+align-items: center;
+margin-top: 0;
+font-size: 22px;
+}
+
+/* New Custom Logo Layout & Glow effect */
+.company-logo {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+object-fit: cover;
+vertical-align: middle;
+margin-right: 14px;
+box-shadow: 0 0 10px rgba(0, 247, 255, 0.6);
+border: 1px solid #00f7ff;
+flex-shrink: 0;
+}
+
 .date{color:#89dfff;}
 ul{line-height:1.8;}
 
@@ -199,6 +219,18 @@ padding-right:20px;
 .left::after,.right::after{
 left:20px;
 }
+}
+
+.copyright{
+position: fixed;
+bottom: 15px;
+left: 50%;
+transform: translateX(-50%);
+text-align: center;
+width: auto;
+font-size: 14px;
+opacity: 0.8;
+z-index: 9999;
 }
 </style>
 </head>
@@ -225,7 +257,10 @@ left:20px;
 <div class="timeline">
 
 <div class="card left"><div class="content">
-<h2>Google Student Ambassador</h2>
+<h2>
+  <img src="gsa_logo.svg" alt="Google Logo" class="company-logo">
+  Google Student Ambassador
+</h2>
 <p class="date">August 2025 – Present</p>
 <ul>
 <li>Representing student communities and connecting students with technology initiatives.</li>
@@ -234,7 +269,10 @@ left:20px;
 </ul></div></div>
 
 <div class="card right"><div class="content">
-<h2>Aspire Leaders Program</h2>
+<h2>
+  <img src="aspire_logo.png" alt="Aspire Leaders Logo" class="company-logo">
+  Aspire Leaders Program
+</h2>
 <p class="date">April 2026 – Present</p>
 <ul>
 <li>Selected participant in an international leadership development program.</li>
@@ -243,7 +281,10 @@ left:20px;
 </ul></div></div>
 
 <div class="card left"><div class="content">
-<h2>Hackerrank Campus Crew TBiT — Social Media Page Manager</h2>
+<h2>
+  <img src="hackerrank_logo.jpg" alt="HackerRank Logo" class="company-logo">
+  Hackerrank Campus Crew TBiT — Social Media Page Manager
+</h2>
 <p class="date">February 2026 – Present</p>
 <ul>
 <li>Managing social media presence and content strategy.</li>
@@ -252,7 +293,10 @@ left:20px;
 </ul></div></div>
 
 <div class="card right"><div class="content">
-<h2>Web Development</h2>
+<h2>
+  <img src="w" alt="Web Dev Logo" class="company-logo">
+  Web Development
+</h2>
 <p class="date">December 2024 – Present</p>
 <ul>
 <li>Building responsive and interactive websites.</li>
@@ -261,7 +305,10 @@ left:20px;
 </ul></div></div>
 
 <div class="card left"><div class="content">
-<h2>Game Development</h2>
+<h2>
+  <img src="gamedev_logo.jpg" alt="Game Dev Logo" class="company-logo">
+  Game Development
+</h2>
 <p class="date">2024 – Present</p>
 <ul>
 <li>Developing game concepts and gameplay systems.</li>
@@ -279,24 +326,10 @@ nav.classList.toggle('show');
 burger.classList.toggle('rotate');
 }
 </script>
+
 <footer class="copyright">
   © <script>document.write(new Date().getFullYear())</script> Aman Imam. All Rights Reserved.
 </footer>
 
-<style>
-.copyright{
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    text-align: center;
-    width: auto;
-
-    font-size: 14px;
-    opacity: 0.8;
-    z-index: 9999;
-}
-</style>
 </body>
 </html>
